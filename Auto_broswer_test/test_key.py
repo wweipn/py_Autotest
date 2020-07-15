@@ -1,18 +1,23 @@
 from selenium import webdriver
 
 
-class test_key:
+def open_browser(self, name, url):
+    if name == 'Chrome':
+        self.driver.webdriver.Chrome()
+    if name == 'ie':
+        self.driver.webdriver.IE()
 
-    def __init__(self):
-        self.driver = webdriver.Chrome()
 
-    def input(self, search_type, text, key):
-        if search_type == 'name':
-            self.driver.find_element_by_name(self.text).send_keys(self.key)
-        if search_type == 'xpath':
-            self.driver.find_element_by_xpath(self.text).send_keys(self.key)
-        if search_type == 'id':
-            self.driver.find_element_by_id(self.text).send_keys(self.key)
+class test_keys:
 
-    def url(self, text):
-        self.driver.get(self.text)
+    def __init__(self, url):
+        self.driver = open(self.name, url)
+
+    def input(self, locator_type, locator, key):
+        if locator_type == 'name':
+            self.driver.find_element_by_name(locator).send_keys(key)
+        if locator_type == 'xpath':
+            self.driver.find_element_by_xpath(locator).send_keys(key)
+        if locator_type == 'id':
+            self.driver.find_element_by_id(locator).send_keys(key)
+
