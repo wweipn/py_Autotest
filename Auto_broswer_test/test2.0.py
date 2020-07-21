@@ -1,4 +1,1 @@
-from Auto_test_by_selenium.test_key import *
-
-
-test_key.url('https://www.baidu.com')
+from Auto_broswer_test.test_key import *

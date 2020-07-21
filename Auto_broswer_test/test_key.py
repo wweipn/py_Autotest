@@ -1,17 +1,15 @@
 from selenium import webdriver
 
 
-def open_browser(self, name, url):
+def open_browser(name):
     if name == 'Chrome':
-        self.driver.webdriver.Chrome()
-    if name == 'ie':
-        self.driver.webdriver.IE()
+        driver = webdriver.Chrome()
 
 
 class test_keys:
 
-    def __init__(self, url):
-        self.driver = open(self.name, url)
+    def __init__(self, name='https://www.baidu.com'):
+        self.driver = open(name)
 
     def input(self, locator_type, locator, key):
         if locator_type == 'name':
@@ -20,4 +18,7 @@ class test_keys:
             self.driver.find_element_by_xpath(locator).send_keys(key)
         if locator_type == 'id':
             self.driver.find_element_by_id(locator).send_keys(key)
+
+
+open_browser('Chrome')
 
